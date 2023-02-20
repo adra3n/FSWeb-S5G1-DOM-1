@@ -43,3 +43,52 @@ console.log('Proje açıldı!')
 
 
 /* Kodlar Buradan aşağıya */
+
+
+const linkler = document.querySelectorAll('nav a');
+// linkler.forEach((element, i) => {
+//   element.classList.add("italic");
+//   element.textContent = siteContent.nav[`nav-item-${i + 1}`];
+// });
+
+[...linkler].map((element, i)=>{
+  element.classList.add("italic")
+  linkler[i].textContent = siteContent.nav[`nav-item-${i + 1}`]
+})
+
+const anaIcerikBaslik = document.querySelectorAll('.text-content h4');
+anaIcerikBaslik.forEach((element, i) => {
+  if (i % 2 == 0) {
+    element.textContent = Object.values(siteContent["ana-içerik"])[i];
+  }
+});
+
+// const anaIcerik = document.querySelectorAll('.text-content h4, .text-content p');
+// anaIcerik.forEach((element, i) => {
+//   element.textContent = Object.values(siteContent["ana-içerik"])[i];
+// });
+
+const resimler = document.querySelectorAll('#logo-img, #cta-img, #middle-img');
+resimler.forEach((element, i) => {
+  element.src = Object.values(siteContent["images"])[i];
+});
+
+const cta = document.querySelectorAll('.cta h1, .cta button');
+cta.forEach((element, i) => {
+  element.textContent = Object.values(siteContent["cta"])[i];
+});
+
+const iletisim = document.querySelectorAll(".contact h4, .contact p");
+iletisim.forEach((element, i) => {
+  element.textContent = Object.values(siteContent["iletisim"])[i];
+});
+
+const footerLink = document.querySelectorAll('nav a');
+linkler.forEach((element, i) => {
+  element.classList.add("italic");
+  element.textContent = siteContent.nav[`nav-item-${i + 1}`]
+});
+
+const copyrightText = document.querySelector("footer a");
+copyrightText.textContent = siteContent.footer["copyright"];
+copyrightText.classList.add("bold");
